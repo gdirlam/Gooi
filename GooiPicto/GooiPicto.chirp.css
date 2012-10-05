@@ -1,0 +1,255 @@
+﻿@import "../_global";
+
+.dhui-iconography-icon, .dhui-icon{
+    display: block; 
+    width:20px;
+    height:20px;
+    border: solid 1px $DarkBlue;
+}
+.dhui-sigil{
+    display: block; 
+    width:40px;
+    height:40px;    
+    border: none; 
+}
+.dhui-rune{
+    display: block; 
+    width:20px;
+    height:40px;    
+    border: none; 
+}
+/*
+
+------------------path of icon-----------no-repeat--horizontal---verticle; 
+background:  url('dhui-iconography.png') no-repeat -124px    ----40px;
+*/
+.dhui-icon-jump{
+    background:  url('dhui-iconography.png') no-repeat -124px -41px;
+    width:18px;
+    height:19px;
+}
+.dhui-icon-arrow{
+    background:  url('dhui-iconography.png') no-repeat -363px -36px;
+    width:18px;
+    height:19px;
+}
+.dhui-icon-arrow-blue{
+    background:  url('dhui-iconography.png') no-repeat -438px -36px;
+    width:18px;
+    height:19px;
+    border: none; 
+}
+.dhui-icon-expand{
+    background:  url('dhui-iconography.png') no-repeat -436px -117px;
+    border: none; 
+}
+.dhui-icon-expand-grey{
+    background:  url('dhui-iconography.png') no-repeat -518px -117px;
+    border: none; 
+}
+.dhui-icon-refine{
+    background:  url('dhui-iconography.png') no-repeat -123px -117px;
+    border: none; 
+}
+.dhui-icon-refine-light{
+    background:  url('dhui-iconography.png') no-repeat -279px -117px;
+    border: none; 
+}
+.dhui-icon-refine-blue{
+    background:  url('dhui-iconography.png') no-repeat -358px -117px;
+    border: none; 
+}
+
+/*column across, 80px per*/
+/*Row 1*/
+.dhui-sigil-medical{
+    background:  url('dhui-iconography.png') no-repeat  -45px -187px;
+}
+.dhui-sigil-home{
+    background:  url('dhui-iconography.png') no-repeat  -127px -187px;
+}
+.dhui-sigil-prioritize{
+    background:  url('dhui-iconography.png') no-repeat  -207px -187px;
+}
+.dhui-sigil-forms{
+    background:  url('dhui-iconography.png') no-repeat  -287px -187px;
+}
+.dhui-sigil-medicalprovider{
+    background:  url('dhui-iconography.png') no-repeat  -369px -187px;
+}
+.dhui-sigil-doctor{
+    background:  url('dhui-iconography.png') no-repeat  -447px -187px;
+}
+.dhui-sigil-join{
+    background:  url('dhui-iconography.png') no-repeat  -525px -187px;
+}
+
+
+/*Row 2*/
+.dhui-sigil-vision{
+    background:  url('dhui-iconography.png') no-repeat  -45px -246px;
+}
+.dhui-sigil-coach{
+    background:  url('dhui-iconography.png') no-repeat  -127px -246px;
+}
+.dhui-sigil-maternity{
+    background:  url('dhui-iconography.png') no-repeat  -207px -246px;
+}
+.dhui-sigil-prevention{
+    background:  url('dhui-iconography.png') no-repeat  -287px -246px;
+}
+.dhui-sigil-calendar{
+    background:  url('dhui-iconography.png') no-repeat  -369px -246px;
+}
+.dhui-sigil-visionprovider{
+    background:  url('dhui-iconography.png') no-repeat  -447px -246px;
+}
+.dhui-sigil-inactivity{
+    background:  url('dhui-iconography.png') no-repeat  -525px -246px;
+}
+
+/*Row 3*/
+.dhui-sigil-pharm{
+    background:  url('dhui-iconography.png') no-repeat  -45px -304px;
+}
+.dhui-sigil-findinsurance{
+    background:  url('dhui-iconography.png') no-repeat  -127px -304px;
+}
+.dhui-sigil-std{
+    background:  url('dhui-iconography.png') no-repeat  -207px -304px;
+}
+.dhui-sigil-mail{
+    background:  url('dhui-iconography.png') no-repeat  -287px -304px;
+}
+.dhui-sigil-phone{
+    background:  url('dhui-iconography.png') no-repeat  -369px -304px;
+}
+.dhui-sigil-pharmprovider{
+    background:  url('dhui-iconography.png') no-repeat  -447px -304px;
+}
+.dhui-sigil-exercise{
+    background:  url('dhui-iconography.png') no-repeat  -525px -304px;
+}
+
+/*Row 4*/
+.dhui-sigil-dental{
+    background:  url('dhui-iconography.png') no-repeat  -45px -358px;
+}
+.dhui-sigil-claims{
+    background:  url('dhui-iconography.png') no-repeat  -127px -358px;
+}
+.dhui-sigil-musculoskeletal{
+    background:  url('dhui-iconography.png') no-repeat  -207px -358px;
+}
+.dhui-sigil-skinhealth{
+    background:  url('dhui-iconography.png') no-repeat  -287px -358px;
+}
+.dhui-sigil-email{
+    background:  url('dhui-iconography.png') no-repeat  -369px -358px;
+}
+.dhui-sigil-dentalhealth{
+    background:  url('dhui-iconography.png') no-repeat  -447px -358px;
+}
+.dhui-sigil-dentalprovider{
+    background:  url('dhui-iconography.png') no-repeat  -525px -358px;
+}
+
+/*Row 5*/
+.dhui-sigil-denied{
+    background:  url('dhui-iconography.png') no-repeat  -45px -414px;
+}
+.dhui-sigil-information{
+    background:  url('dhui-iconography.png') no-repeat  -127px -414px;
+}
+.dhui-sigil-caduceus{
+    background:  url('dhui-iconography.png') no-repeat  -207px -414px;
+}
+.dhui-sigil-alcoholdrug{
+    background:  url('dhui-iconography.png') no-repeat  -287px -414px;
+}
+.dhui-sigil-hi{
+    background:  url('dhui-iconography.png') no-repeat  -369px -414px;
+}
+.dhui-sigil-smoking{
+    background:  url('dhui-iconography.png') no-repeat  -447px -414px;
+}
+.dhui-sigil-cancer{
+    background:  url('dhui-iconography.png') no-repeat  -525px -414px;
+}
+
+/*Row 6*/
+.dhui-sigil-pending{
+    background:  url('dhui-iconography.png') no-repeat  -45px -467px;
+}
+.dhui-sigil-providersearch{
+    background:  url('dhui-iconography.png') no-repeat  -127px -467px;
+}
+.dhui-sigil-nurse{
+    background:  url('dhui-iconography.png') no-repeat  -207px -467px;
+}
+.dhui-sigil-backpain{
+    background:  url('dhui-iconography.png') no-repeat  -287px -467px;
+}
+.dhui-sigil-prioritizeplan{
+    background:  url('dhui-iconography.png') no-repeat  -369px -467px;
+}
+.dhui-sigil-quitsmoking{
+    background:  url('dhui-iconography.png') no-repeat  -447px -467px;
+}
+.dhui-sigil-outreach{
+    width:46px;
+    background:  url('dhui-iconography.png') no-repeat  -528px -467px;
+}
+
+/*Row 7*/
+.dhui-sigil-approved{
+    background:  url('dhui-iconography.png') no-repeat  -45px -524px;
+}
+.dhui-sigil-weightloss{
+    background:  url('dhui-iconography.png') no-repeat  -127px -524px;
+}
+.dhui-sigil-dental{
+    background:  url('dhui-iconography.png') no-repeat  -207px -524px;
+}
+.dhui-sigil-flu{
+    background:  url('dhui-iconography.png') no-repeat  -287px -524px;
+}
+.dhui-sigil-house{
+    background:  url('dhui-iconography.png') no-repeat  -369px -524px;
+}
+.dhui-sigil-care{
+    background:  url('dhui-iconography.png') no-repeat  -447px -524px;
+}
+.dhui-sigil-coercion{
+    background:  url('dhui-iconography.png') no-repeat  -525px -524px;
+}
+
+/*Row 8*/
+.dhui-sigil-exception{
+    background:  url('dhui-iconography.png') no-repeat  -45px -586px;
+}
+.dhui-sigil-directions{
+    background:  url('dhui-iconography.png') no-repeat  -127px -586px;
+}
+.dhui-sigil-arthritis{
+    background:  url('dhui-iconography.png') no-repeat  -207px -586px;
+}
+.dhui-sigil-prostate{
+    background:  url('dhui-iconography.png') no-repeat  -287px -586px;
+}
+.dhui-sigil-time{
+    background:  url('dhui-iconography.png') no-repeat  -369px -586px;
+}
+.dhui-sigil-stethoscope{
+    background:  url('dhui-iconography.png') no-repeat  -447px -586px;
+}
+.dhui-sigil-humor{
+    background:  url('dhui-iconography.png') no-repeat  -525px -586px;
+}
+
+/*Row 9*/
+
+/*Row 10*/
+.dhui-sigil-healthprofile{
+    background:  url('dhui-iconography.png') no-repeat  -124px -703px;
+}
