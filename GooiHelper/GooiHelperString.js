@@ -46,5 +46,5 @@ Gooi.Helper.String = {
         String.prototype.write = Gooi.Helper.String.write
 
 })()
-"foobar".write()
+
         
