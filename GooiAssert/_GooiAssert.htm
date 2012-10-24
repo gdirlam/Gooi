@@ -9,8 +9,14 @@
 </head>
 <body>
     <script>
-        debugger;
-        Gooi.Assert("foo" === "foo", "bar")
+        //Gooi.Assert.ignore = true 
+
+        //Gooi.assert("foo" === "foobar", "bar", "susfoo")
+        //debugger;
+        //Gooi.Assert.areEqual("foo", "foobar", "foo does not equal foobar")
+        //Gooi.Assert.isString(1, "1 is not a string")
+        //Gooi.Assert.isDate( new Date( '13/1/2010' ) , "I am not a date")
+        Gooi.Assert.isDate(new Date('13/1/2010'))
     </script>
 </body>
 </html>
