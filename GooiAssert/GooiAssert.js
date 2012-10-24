@@ -6,7 +6,7 @@ Gooi.Assert = function () {
     var message = arguments[1]
     //var additional = arguments.slice[1]
     if (!exp) {
-        throw new AssertException(message);
+        throw new this.AssertException(message);
     }
     this.AssertException = function (message) {
         this.message = message
