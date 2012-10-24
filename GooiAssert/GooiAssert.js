@@ -1,6 +1,6 @@
 ﻿﻿var Gooi = Gooi || {};
 var Gooi_Globals_Assert_ignore = false; 
-
+var Gooi_Globals_Assert_WARN = false; 
 Gooi.assert = function () {
 
     this.AssertException = function () {
@@ -16,16 +16,20 @@ Gooi.assert = function () {
         return ExceptionBase; 
     }
     
-    if( (! arguments[0] ) && Gooi_Globals_Assert_ignore != true ) 
-        throw this.AssertException.apply( this, arguments ) 
+    if( (! arguments[0] ) && Gooi_Globals_Assert_ignore != true ){ 
+        if(! Gooi_Globals_Assert_WARN ){
+            throw this.AssertException.apply( this, arguments ) 
+        }else{
+            var ex = this.AssertException.apply( this, arguments )
+            console.warn( ex, ex.message  )
+        }
+    }
 
 }
 
-Gooi.Assert = {}
-
 Gooi.Assert =  ( function (base) {
     _ignore = function(){ return Gooi_Globals_Assert_ignore }
-
+    
     base.areEqual = function(   val1, val2, message  ){
          if(! _ignore() )   
             return  Gooi.assert(val1 === val2, message || "Values are not equal" )
@@ -47,35 +51,27 @@ Gooi.Assert =  ( function (base) {
             }
     }
 
+    //base.isBoolean
+    //base.isObject
+    //base.isTypeOf
+    //base.isInstanceOf
+    //base.isFalse        
+    //base.isTrue         
+    //base.isNaN          
+    //base.isNotNaN       
+    //base.isNull         
+    //base.isNotNull      
+    //base.isUndefined    
+    //base.isNotUndefined 
+
+//Set Global Assert Ignore
     base.__defineGetter__("ignore", function(){ return Gooi_Globals_Assert_ignore })
     base.__defineSetter__("ignore", function( value ){ Gooi_Globals_Assert_ignore = value }) 
+//Set Global Assert Warn Only
+    base.__defineGetter__("warn", function(){ return Gooi_Globals_Assert_WARN })
+    base.__defineSetter__("warn", function( value ){ Gooi_Globals_Assert_WARN = value }) 
 
     return base;
 
-}( Gooi.Assert || {} ));   
+}( new Object ));   
 
-
-  
-
-        //Gooi.Assert.__proto__.__defineGetter__("ignore", function(){ return Gooi_Globals_Assert_ignore }) 
-        //Gooi.Assert.__proto__.__defineSetter__("ignore", function( value ){ Gooi_Globals_Assert_ignore = value }) 
-
-    /*
-        Assert.isString("Hello world");     //passes
-        Assert.isNumber(1);                 //passes
-        Assert.isArray([]);                 //passes
-        Assert.isObject([]);                //passes
-        Assert.isFunction(function(){});    //passes
-        Assert.isBoolean(true);             //passes
-        Assert.isObject(function(){});      //passes
- 
-        Assert.isNumber("1", "Value should be a number.");  //fails
-        Assert.isString(1, "Value should be a string.");    //fails    
-    
-    */
-
-/*
-(function GooiAssertPrototype() {
-
-})()
-*/
