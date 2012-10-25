@@ -1,6 +1,8 @@
-﻿﻿var Gooi = Gooi || {};
-var Gooi_Globals_Assert_ignore = false; 
-var Gooi_Globals_Assert_WARN = false; 
+/*jshint asi:true, supernew:true */
+var Gooi = Gooi || {};
+var Gooi_Globals_Assert_ignore = false
+var Gooi_Globals_Assert_WARN = false
+
 Gooi.assert = function () {
 
     this.AssertException = function () {
@@ -8,15 +10,15 @@ Gooi.assert = function () {
 
         ExceptionBase.message = arguments[1]
         ExceptionBase.valid = arguments[0]
-        ExceptionBase.arguments = Array.prototype.slice.call(arguments)
+        ExceptionBase.args = Array.prototype.slice.call(arguments)
 
         ExceptionBase.toString = function () {
-            return 'AssertException: ' + this.arguments.slice(1).join(' : ')
+            return 'AssertException: ' + this.args.slice(1).join(' : ')
         }
         return ExceptionBase; 
     }
     
-    if( (! arguments[0] ) && Gooi_Globals_Assert_ignore != true ){ 
+    if( (! arguments[0] ) && Gooi_Globals_Assert_ignore !== true ){ 
         if(! Gooi_Globals_Assert_WARN ){
             throw this.AssertException.apply( this, arguments ) 
         }else{
@@ -28,7 +30,7 @@ Gooi.assert = function () {
 }
 
 Gooi.Assert =  ( function (base) {
-    _ignore = function(){ return Gooi_Globals_Assert_ignore }
+    var _ignore = function(){ return Gooi_Globals_Assert_ignore }
     
     base.areEqual = function(   val1, val2, message  ){
          if(! _ignore() )   
@@ -73,5 +75,5 @@ Gooi.Assert =  ( function (base) {
 
     return base;
 
-}( new Object ));   
+}( Gooi.Assert || {} ));   
 

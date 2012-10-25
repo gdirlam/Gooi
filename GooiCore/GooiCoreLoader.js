@@ -1,6 +1,8 @@
-﻿var Gooi = Gooi || {};
+var Gooi = Gooi || {};
 Gooi.Core = Gooi.Core || {};
 
-Gooi.Core.Loader = {
 
-}
+Gooi.Core.Loader =  ( function (base) {
+
+
+}( Gooi.Core.Loader || {} ));       
