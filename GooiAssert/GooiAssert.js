@@ -53,10 +53,14 @@ Gooi.Assert =  ( function (base) {
             }
     }
 
+    base.isInstanceOf = function(val, type, message){
+         if(! _ignore() )   
+            return  Gooi.assert( val instanceof type, message || "Value is not an instance of " + type.totoString  )
+    }
+
     //base.isBoolean
     //base.isObject
     //base.isTypeOf
-    //base.isInstanceOf
     //base.isFalse        
     //base.isTrue         
     //base.isNaN          
