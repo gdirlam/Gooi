@@ -13,5 +13,6 @@ return base
 }( Gooi.Core.Loader || {} ));       
 
 //debugger; 
+Gooi.Assert.warn = true 
 Gooi.Assert.isInstanceOf(Gooi.Load, Object )
 Gooi.Assert.isInstanceOf(Gooi.Core.Loader, Object )

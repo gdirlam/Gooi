@@ -33,42 +33,30 @@ Gooi.Assert =  ( function (base) {
     var _ignore = function(){ return Gooi_Globals_Assert_ignore }
     
     base.areEqual = function(   val1, val2, message  ){
-         if(! _ignore() )   
+         if(! base.ignore )   
             return  Gooi.assert(val1 === val2, message || "Values are not equal" )
     }
 
     base.isString = function(val1, message){
-         if(! _ignore() )   
+         if(! base.ignore )   
             return  Gooi.assert(typeof val1 === 'string', message || "Value is not a string" )
     }
 
     base.isNumber = function(val1, message){
-         if(! _ignore() )   
+         if(! base.ignore )   
             return  Gooi.assert(typeof val1 === 'number', message || "Value is not a number" )
     }
 
     base.isDate = function(val1, message){
-         if(! _ignore() ) {  
+         if(! base.ignore ) {  
             return  Gooi.assert( val1 instanceof Date && !isNaN(val1.getTime() ), message  || "Value is not a date")
             }
     }
 
     base.isInstanceOf = function(val, type, message){
-         if(! _ignore() )   
+         if(! base.ignore )   
             return  Gooi.assert( val instanceof type, message || "Value is not an instance of " + type.totoString  )
     }
-
-    //base.isBoolean
-    //base.isObject
-    //base.isTypeOf
-    //base.isFalse        
-    //base.isTrue         
-    //base.isNaN          
-    //base.isNotNaN       
-    //base.isNull         
-    //base.isNotNull      
-    //base.isUndefined    
-    //base.isNotUndefined 
 
 //Set Global Assert Ignore
     base.__defineGetter__("ignore", function(){ return Gooi_Globals_Assert_ignore })
@@ -81,3 +69,16 @@ Gooi.Assert =  ( function (base) {
 
 }( Gooi.Assert || {} ));   
 
+
+/* Gooi.Assert */
+    //base.isBoolean
+    //base.isObject
+    //base.isTypeOf
+    //base.isFalse        
+    //base.isTrue         
+    //base.isNaN          
+    //base.isNotNaN       
+    //base.isNull         
+    //base.isNotNull      
+    //base.isUndefined    
+    //base.isNotUndefined 
