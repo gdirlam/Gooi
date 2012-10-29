@@ -40,12 +40,14 @@
   };
 
   function buildNode($node, $appendTo, level, opts) {
+      debugger; 
     var $table = $("<table cellpadding='0' cellspacing='0' border='0'/>");
     var $tbody = $("<tbody/>");
 
     // Make this node...
     var $nodeRow = $("<tr/>").addClass("nodes");
-    var $nodeCell = $("<td/>").addClass("node").attr("colspan", 2);
+    var cls = $node.attr('class') || '' 
+    var $nodeCell = $("<td/>").addClass("node "  + cls).attr("colspan", 2);
     var $childNodes = $node.children("ul:first").children("li");
     if($childNodes.length > 1) {
       $nodeCell.attr("colspan", $childNodes.length * 2);

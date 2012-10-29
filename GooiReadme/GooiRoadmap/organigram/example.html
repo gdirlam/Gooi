@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>dhui page markup</title>
-    <link rel="stylesheet" href="organigram.min.css" />
+    <link rel="stylesheet" href="organigram.css" />
     <style>
         body {
             font-family: Ubuntu, SansSerif, Sans-Serif;
@@ -42,8 +42,7 @@
       $("#main"));
         });
         $(function () {
-            $('div.node:contains("[")').each(function (i, el) {
-                //debugger; 
+            $('div.node:contains("[")').each(function (i, el) { 
                 var html = $(el).html()
                 html = html.replace('[', '<span class="asterisk">*</span><em>* ');
                 html = html.replace(']', '</em>');
@@ -60,7 +59,21 @@
     <div id="main">
     </div>
 
-    <ul id="Gooi" style="display: none;">
+ <ul id="Gooi" style="display: none;">
+    <li>Gooi
+        <ul>
+            <li>GooiAssert
+                <ul>
+                    <li class="fn">GooiAssertIgnore</li>
+                    <li class="fn">GooiAssertWarn</li>
+                </ul>   
+            </li>
+            <li>Plugins</li>
+        </ul>
+    </li>
+    </ul>
+
+    <ul id="Gooi2" style="display: none;">
     <li>Gooi
         <ul>
             <li>GooiCore
@@ -72,7 +85,7 @@
                     <li>GooiCoreSocket</li>
                 </ul>
             </li>
-            <li>GooiHelper
+            <li>GooiAssertHelper
                 <ul>
                     <li>GooiHelperArray</li>
                     <li>GooiHelperDate</li>
@@ -84,10 +97,10 @@
             <li>GooiPage</li>
             <li>GooiInput</li>
             <li>GooiUx</li>
-            <li>GooiTest
+            <li>GooiAssert
                 <ul>
-                    <li>GooiTestAssert</li>
-                    <li>GooiTestIs</li>
+                    <li class="fn">GooiAssertIgnore</li>
+                    <li class="fn">GooiAssertWarn</li>
                 </ul>   
             </li>
             <li>Plugins</li>

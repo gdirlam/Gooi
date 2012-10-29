@@ -1,0 +1,93 @@
+div.orgChart h2 {
+  margin: 0px;
+  font-size: 1.1em; }
+
+div.orgChart ul {
+  list-style: none;
+  margin: 0;
+  padding: 0px;
+  font-size: 0.8em;
+  text-align: left; }
+
+div.orgChart table {
+  width: 100%; }
+
+div.orgChart tr.lines td.line {
+  width: 1px;
+  height: 20px; }
+
+div.orgChart tr.lines td.top {
+  border-top: 2px solid #cccccc; }
+
+div.orgChart tr.lines td.left {
+  border-right: 1px solid #cccccc; }
+
+div.orgChart tr.lines td.right {
+  border-left: 1px solid #cccccc; }
+
+div.orgChart td {
+  text-align: center;
+  vertical-align: top;
+  padding: 0px 1px; }
+
+div.orgChart div.node {
+  position: relative;
+  cursor: pointer;
+  margin: 0 10px 0 0;
+  /*padding: 10px 0;*/
+  display: block;
+  /*font-size: 14px;*/
+  font-weight: bold;
+  text-align: center;
+  color: black;
+  background: #c3eafb url("img/white-highlight.png") top left repeat-x;
+  border: 2px solid #b5d9ea;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 2px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 2px;
+  /* FF 3.5+ */ }
+
+div.orgChart div.node.hover {
+  /*background-color      : #ffe8e8;*/
+  background-color: #e2f4fd;
+  border-color: #97bdcf; }
+
+div.orgChart div.node1 {
+  background-color: #cee3ac;
+  border-color: #b8da83; }
+
+div.orgChart div.node1.hover {
+  border-color: #94b75f;
+  background-color: #e7f1d7; }
+
+div.node em {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 200px;
+  padding: .5em;
+  background-color: rgbA(204, 204, 204, 0.8);
+  border: solid 1px #666666;
+  color: Blue;
+  font-size: 8pt;
+  z-index: 500;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px; }
+
+div.node:hover em {
+  display: block; }
+
+.asterisk {
+  color: Blue; }
+
+div.orgChart .fn {
+  color: green;
+  background-color: #fff7aa;
+  border-color: #e3ca4b; }
+
+div.orgChart .fn.hover {
+  border-color: #fffce5;
+  background-color: #d1b62c; }

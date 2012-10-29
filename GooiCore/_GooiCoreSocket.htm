@@ -1,0 +1,39 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="https://raw.github.com/gdirlam/Gooi/master/GooiCore/GooiCoreStrings.js" type="text/javascript"></script>
+    <script src="https://raw.github.com/gdirlam/Gooi/master/GooiAssert/GooiAssert.js" type="text/javascript"></script>
+    <script src="GooiCore.js" type="text/javascript"></script>
+    <script src="GooiCoreSocket.js" type="text/javascript"></script>
+    <script>
+    //check out that cool Dom Ready action....
+        Goo(function(){
+            var _url = "//app.ecwid.com/api/v1/1590566/categories"
+            Gooi.Core.Socket.Remote(_url,  function( data ){
+                    console.dir( data )   
+                    return data
+            })
+        })    
+        Goo(function(){
+            //debugger; 
+            var _url = "test.json"
+             //Gooi.Core.Socket.Web({})
+            Gooi.Core.Socket.Web(_url,  function( data ){
+            //debugger; 
+                    var Data = ( new Function( "return " + data ) )()
+                    console.dir( Data )   
+                    return Data
+            })
+           
+        }) 
+
+    </script>
+</head>
+<body>
+<h1>Core Sockets IO Remote</h1>
+need to add tests...
+<body>
+</html>
