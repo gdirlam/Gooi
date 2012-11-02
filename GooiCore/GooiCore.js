@@ -1,16 +1,16 @@
 var Gooi = Gooi || {};
 
 
-Gooi.Core =  ( function ( base ) {
-    base.bindFunction = function ( caller, object ) {
+Gooi.Core = ( function ( base ) {
+    base.Bind = function ( caller, object ) {
         return function() {
             return caller.apply( object, [object] )
         };
     };
-    base.extend = function( destination, source ) {
-          for( var prop in source ) {
-            if( source.hasOwnProperty( prop ) ) {
-              destination[ prop ] = source[ prop ]
+    base.Extend = function( destination, original ) {
+          for( var prop in original ) {
+            if( original.hasOwnProperty( prop ) ) {
+              destination[ prop ] = original[ prop ]
             }
           }
           return destination; 
@@ -22,7 +22,7 @@ return base
 /*! 
  * onDomReady.js 1.2 (c) 2012 Tubal Martin - MIT license
  */
-!function( definition ) {
+(function( definition ) {
     if (typeof define === "function" && define.amd) {
         // Register as an AMD module.
         define(definition);
@@ -30,7 +30,7 @@ return base
         // Browser globals
         window.onDomReady = definition();
     }
-}(function() {
+})(function() {
     
     'use strict';
 

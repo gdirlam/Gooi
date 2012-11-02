@@ -1,4 +1,5 @@
-﻿	(function StringUtilities(){
+/*This is not used in Gooi, here to maintain compatibility with older versions of jsfiddles*/
+    (function StringUtilities(){
 	
 	    if (! String.prototype.format ) 
 	        String.prototype.format = function(){

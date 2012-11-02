@@ -1,7 +1,7 @@
 # ./gitbatch
 
 echo "add this message to your commit"
-read msg
-git commit -am msg
-git push
-echo "all changes committed"
+read $msg
+#git commit -am $msg
+#git push
+#echo "all changes committed"
