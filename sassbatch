@@ -1,5 +1,0 @@
-# ./sassbatch
-
-sass GooiReadme/GooiRoadmap/organigram/organigram.scss GooiReadme/GooiRoadmap/organigram/organigram.css
-
-echo "sass updated"
