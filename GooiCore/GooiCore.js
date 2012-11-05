@@ -1,20 +1,20 @@
 var Gooi = Gooi || {};
 
-
 Gooi.Core = ( function ( base ) {
     base.Bind = function ( caller, object ) {
         return function() {
             return caller.apply( object, [object] )
         };
     };
-    base.Extend = function( destination, original ) {
-          for( var prop in original ) {
-            if( original.hasOwnProperty( prop ) ) {
-              destination[ prop ] = original[ prop ]
-            }
+
+    base.Extend = function( destination, source ) {
+
+          for( var member in source) {
+            destination[ member ] = source[ member ]
           }
-          return destination; 
-        };    
+        return destination
+    };
+    
 return base
 }( Gooi.Core || {} ));       
 

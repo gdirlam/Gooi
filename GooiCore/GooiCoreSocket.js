@@ -30,17 +30,13 @@ Gooi.Core.Socket =  (function (base) {
                     response.Text = base.Web.Request.responseText.toString() 
                     response.ContentType = base.Web.Request.getResponseHeader( 'content-type' )
 
-                    if( response.ContentType.indexOf('text') > -1)
-                        response.Type = 'text'
+                    if( response.ContentType.indexOf('text') > -1) response.Type = 'text'
                     
-                    if( response.ContentType.indexOf('html') > -1)
-                        response.Type = 'html'
+                    if( response.ContentType.indexOf('html') > -1) response.Type = 'html'
                       
-                    if( response.ContentType.indexOf('xml') > -1)
-                        response.Type = 'xml'
+                    if( response.ContentType.indexOf('xml') > -1) response.Type = 'xml'
                   
-                    if( response.ContentType.indexOf('json') > -1)
-                        response.Type = 'json'
+                    if( response.ContentType.indexOf('json') > -1) response.Type = 'json'
                     
                     if( response.Type === 'json' ){
                         response.Data = ( new Function( "return " + base.Web.Response.Text ) )()
