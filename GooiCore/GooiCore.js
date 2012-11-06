@@ -1,5 +1,16 @@
 var Gooi = Gooi || {};
 
+(function js16(){
+    if ( !Array.prototype.forEach ) {
+      Array.prototype.forEach = function(fn, scope) {
+        for(var i = 0, len = this.length; i < len; ++i) {
+          fn.call(scope, this[i], i, this);
+        }
+      }
+    }    
+    })()
+
+
 Gooi.Core = ( function ( base ) {
     base.Bind = function ( caller, object ) {
         return function() {
@@ -20,7 +31,12 @@ return base
 
 
 Gooi.Core.Loader =  function (base, Global) {
-    base.Asset = function(name, location){
+    
+    Global.Gooi_Globals_Site = '/gdirlam/gooi/workspace'
+    Global.Gooi_Globals_Loader_Complete = false; 
+    base.Queue = []
+    
+    base.Asset = function( name, location ){
         var base = {
             Name: name
             , Location: location
@@ -31,34 +47,52 @@ Gooi.Core.Loader =  function (base, Global) {
             };
             return base
     }
+    base.enqueue = function(asset){
+    //    debugger; 
+        base.Queue[ base.Queue.length ] = asset
+    }
+    base.Load = function(){
+    //    debugger;         
+        do{
+            var asset = base.Queue[0]
+            base.LoadScript( asset )
+            base.Queue.splice( 0, 1 )
+        }while( base.Queue.length > 0 )
+        
+
+    }
     base.Requires = function( library ){
-        //debugger; 
-        //base.Requires.Success =  function(){alert('Loaded')}
-        //base.Requires.Url = '../GooiAssert/GooiAssert.js'
-        //base.Load(library)
+        base.Requires.Success =  function(){
+            //debugger; 
+            //console.dir( base.Queue )
+            if(base.Queue.length === 0) Global.Gooi_Globals_Loader_Complete = true
+            }
+    //    debugger; 
+        base.enqueue( Gooi_Globals_Assets[library] )
+        
         return base
     };
-    base.Load = function(library){
-        console.log(library)
+    base.LoadScript = function(asset){
+    //    debugger; 
+
         var script = document.createElement( 'script' )
-        //_script.src = base.Remote.url + '?callback=Gooi.Core.Loader.Requires.Success'
-        var Asset = Gooi_Globals_Assets[library]
-        script.src = Asset.Url() // base.Requires.Url
+
+        script.src = asset.Url() 
+        script.onload = Gooi.Core.Loader.Requires.Success
         script.type = 'text/javascript'
-        document.head.appendChild( script )            
+        document.head.appendChild( script )   
+        //debugger; 
+        
     };
+    
     base.init = function(){
-        Global.Gooi_Globals_Site = '/gdirlam/gooi/workspace'
-        Global.Gooi_Globals_Loader_Complete = false; 
         Global.Gooi_Globals_Assets = [];
     
-        var asset = base.Asset
-        Global.Gooi_Globals_Assets['Core'] =  new asset('Core', '/GooiCore/GooiCore.js')
-        Global.Gooi_Globals_Assets['Assert'] =  new asset('Assert', '/GooiAssert/GooiAssert.js')    
-       /*        debugger; 
-        if( typeof( Gooi.Core.Bind ) !== 'function' ){
-            base.Load('Core')
-        }*/
+        Global.Gooi_Globals_Assets['Core'] =  new base.Asset('Core', '/GooiCore/GooiCore.js')
+        Global.Gooi_Globals_Assets['Assert'] =  new base.Asset('Assert', '/GooiAssert/GooiAssert.js')    
+        Global.Gooi_Globals_Assets['Socket'] =  new base.Asset('Core', '/GooiCore/GooiCoreSocket.js')
+        
+
     };
     base.init()
 return base
@@ -108,13 +142,14 @@ return base
         if ( !isReady ) {
             
             // Make sure body exists, at least, in case IE gets a little overzealous (ticket #5443).
-            if ( !doc.body ) {
+            if ( ! ( doc.body  && Gooi_Globals_Loader_Complete )  ) {
+                console.log(Gooi_Globals_Loader_Complete, 'not comeplete')
                 return defer( ready );
             }
             
             // Remember that the DOM is ready
             isReady = true;
-
+            
             // Execute all callbacks
             while ( fn = callbacks.shift() ) {
                 defer( fn );

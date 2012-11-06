@@ -2,7 +2,7 @@
 var Gooi = Gooi || {};
 var Gooi_Globals_Assert_ignore = false
 var Gooi_Globals_Assert_WARN = false
-
+//alert('Event')
 Gooi.assert = function () {
 
     this.AssertException = function () {
