@@ -19,6 +19,53 @@ return base
 }( Gooi.Core || {} ));       
 
 
+Gooi.Core.Loader =  function (base, Global) {
+    base.Asset = function(name, location){
+        var base = {
+            Name: name
+            , Location: location
+            , Url: function(){
+                //debugger; 
+                return Gooi_Globals_Site + location + ( (! /(\.js)$/.test(location) ) ? '.js':'' )
+                }
+            };
+            return base
+    }
+    base.Requires = function( library ){
+        //debugger; 
+        //base.Requires.Success =  function(){alert('Loaded')}
+        //base.Requires.Url = '../GooiAssert/GooiAssert.js'
+        //base.Load(library)
+        return base
+    };
+    base.Load = function(library){
+        console.log(library)
+        var script = document.createElement( 'script' )
+        //_script.src = base.Remote.url + '?callback=Gooi.Core.Loader.Requires.Success'
+        var Asset = Gooi_Globals_Assets[library]
+        script.src = Asset.Url() // base.Requires.Url
+        script.type = 'text/javascript'
+        document.head.appendChild( script )            
+    };
+    base.init = function(){
+        Global.Gooi_Globals_Site = '/gdirlam/gooi/workspace'
+        Global.Gooi_Globals_Loader_Complete = false; 
+        Global.Gooi_Globals_Assets = [];
+    
+        var asset = base.Asset
+        Global.Gooi_Globals_Assets['Core'] =  new asset('Core', '/GooiCore/GooiCore.js')
+        Global.Gooi_Globals_Assets['Assert'] =  new asset('Assert', '/GooiAssert/GooiAssert.js')    
+       /*        debugger; 
+        if( typeof( Gooi.Core.Bind ) !== 'function' ){
+            base.Load('Core')
+        }*/
+    };
+    base.init()
+return base
+}( Gooi.Core.Loader || {}, window );    
+
+
+
 /*! 
  * onDomReady.js 1.2 (c) 2012 Tubal Martin - MIT license
  */
@@ -157,3 +204,4 @@ return base
 
 Gooi.Core.Ready = onDomReady; 
 Goo = onDomReady; 
+Gooi = Gooi.Core.Extend(Gooi, onDomReady)  
