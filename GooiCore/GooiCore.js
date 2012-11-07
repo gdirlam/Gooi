@@ -2,9 +2,6 @@
 
 var Gooi = Gooi || {};
 
-
-
-
 Gooi.Core = ( function ( base ) {
     base.Bind = function ( caller, object ) {
         return function() {
@@ -19,9 +16,14 @@ Gooi.Core = ( function ( base ) {
           }
         return destination
     };
-    base.EcmaCompatiblity =  base.EcmaCompatiblity || {}
-    base.EcmaCompatiblity.array = ( base.EcmaCompatiblity.array || {} )
-    base.EcmaCompatiblity.array.forEach = function(){
+  
+    
+return base
+}( Gooi.Core || {} ));       
+
+Gooi.Core.EcmaCompatability = ( function ( base ) {
+    base.array = ( base.array || {} )
+    base.array.forEach = function(){
             if ( !Array.prototype.forEach ) {
               Array.prototype.forEach = function(fn, scope) {
                 for(var i = 0, len = this.length; i < len; ++i) {
@@ -30,7 +32,7 @@ Gooi.Core = ( function ( base ) {
               }
             }                    
         }
-    base.EcmaCompatiblity.array.map = function(){
+    base.array.map = function(){
                 if (!Array.prototype.map) {
                   Array.prototype.map = function(callback, thisArg) {
                     var T, A, k;
@@ -60,7 +62,7 @@ Gooi.Core = ( function ( base ) {
                   };      
                 }              
             }       
-    base.EcmaCompatiblity.array.reduce = function(){
+    base.array.reduce = function(){
         if (!Array.prototype.reduce) {
           Array.prototype.reduce = function reduce(accumulator){
             if (this===null || this===undefined) throw new TypeError("Object is null or undefined");
@@ -82,12 +84,36 @@ Gooi.Core = ( function ( base ) {
           };
         }        
     }
-    base.EcmaCompatiblity.array.forEach()          
-    base.EcmaCompatiblity.array.map()
-    base.EcmaCompatiblity.array.reduce()
-        
+    base.array.filter = function(){
+        if (!Array.prototype.filter)        {
+          Array.prototype.filter = function(fun /*, thisp */)          {
+            "use strict";
+            if (this == null)
+              throw new TypeError();
+            var t = Object(this);
+            var len = t.length >>> 0;
+            if (typeof fun != "function")
+              throw new TypeError();
+            var res = [];
+            var thisp = arguments[1];
+            for (var i = 0; i < len; i++)            {
+              if (i in t)              {
+                var val = t[i]; 
+                if (fun.call(thisp, val, i, t))
+                  res.push(val);
+              }
+            }
+            return res;
+          };
+        }    
+    }
+    base.array.forEach()          
+    base.array.map()
+    base.array.reduce()
+    base.array.filter() 
+
 return base
-}( Gooi.Core || {} ));       
+}( Gooi.Core.EcmaCompatability || {} )); 
 
 
 Gooi.Core.Loader =  function (base, Global) {
@@ -102,7 +128,7 @@ Gooi.Core.Loader =  function (base, Global) {
             , Location: location
             , Url: function(){
                 //debugger; 
-                return Gooi_Globals_Site + location + ( (! /(\.js)$/.test(location) ) ? '.js':'' )
+                return Global.Gooi_Globals_Site + location + ( (! /(\.js)$/.test(location) ) ? '.js':'' )
                 }
             };
             return base
@@ -202,8 +228,7 @@ return base
         if ( !isReady ) {
             
             // Make sure body exists, at least, in case IE gets a little overzealous (ticket #5443).
-            if ( ! ( doc.body  && Gooi_Globals_Loader_Complete )  ) {
-                console.log(Gooi_Globals_Loader_Complete, 'not comeplete')
+            if ( ! ( doc.body && Gooi_Globals_Loader_Complete )  ) {
                 return defer( ready );
             }
             
