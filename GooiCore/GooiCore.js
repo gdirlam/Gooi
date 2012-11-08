@@ -107,6 +107,7 @@ Gooi.Core.EcmaCompatability = ( function ( base ) {
           };
         }    
     }
+
     base.array.forEach()          
     base.array.map()
     base.array.reduce()
@@ -177,7 +178,7 @@ Gooi.Core.Loader =  function (base, Global) {
         Global.Gooi_Globals_Assets['Core'] =  new base.Asset('Core', '/GooiCore/GooiCore.js')
         Global.Gooi_Globals_Assets['Assert'] =  new base.Asset('Assert', '/GooiAssert/GooiAssert.js')    
         Global.Gooi_Globals_Assets['Socket'] =  new base.Asset('Core', '/GooiCore/GooiCoreSocket.js')
-        
+        Global.Gooi_Globals_Assets['StringHelper'] =  new base.Asset('StringHelper', '/GooiHelper/GooiHelperString.js')
 
     };
     base.init()

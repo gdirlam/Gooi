@@ -33,16 +33,16 @@ Gooi.Helper.String = {
 
 (function GooiHelperStringPrototype() {
 
-    if (!String.prototype.format)
+    if(! String.prototype.format )
         String.prototype.format = Gooi.Helper.String.format
 
-    if (!String.format)
+    if(! String.format )
         String.format = Gooi.Helper.String.inlineformat
 
-    if (!String.write)
+    if(! String.write )
         String.write =  Gooi.Helper.String.write
 
-    if (!String.prototype.write)
+    if(! String.prototype.write )
         String.prototype.write = Gooi.Helper.String.write
 
 })()
