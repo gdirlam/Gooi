@@ -1,7 +1,9 @@
 /*jshint asi:true, supernew:true */
-var Gooi = Gooi || {};
 var Gooi_Globals_Assert_ignore = false
 var Gooi_Globals_Assert_WARN = false
+
+var Gooi = Gooi || {};
+
 //alert('Event')
 Gooi.assert = function () {
 
@@ -64,16 +66,16 @@ Gooi.Assert =  ( function (base) {
             return  Gooi.assert(typeof val1 === 'string', message || "Value is not a string" )
     };
 
-//Set Global Assert Ignore
-Object.defineProperty(base, 'ignore', {
-    get: function() { return Gooi_Globals_Assert_ignore }
-    , set:function( value ){ Gooi_Globals_Assert_ignore = value }
-});
-//Set Global Assert Warn Only
-Object.defineProperty(base, 'warn', {
-    get: function() { return Gooi_Globals_Assert_WARN }
-    , set: function( value ){ Gooi_Globals_Assert_WARN = value }
-});
+    //Set Global Assert Ignore
+    Object.defineProperty(base, 'ignore', {
+        get: function() { return Gooi_Globals_Assert_ignore }
+        , set:function( value ){ Gooi_Globals_Assert_ignore = value }
+    });
+    //Set Global Assert Warn Only
+    Object.defineProperty(base, 'warn', {
+        get: function() { return Gooi_Globals_Assert_WARN }
+        , set: function( value ){ Gooi_Globals_Assert_WARN = value }
+    });
 
 
 return base;

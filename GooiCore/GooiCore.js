@@ -16,7 +16,8 @@ Gooi.Core = ( function ( base ) {
           }
         return destination
     };
-  
+    
+    base.Loaded = [];
     
 return base
 }( Gooi.Core || {} ));       
@@ -135,11 +136,12 @@ Gooi.Core.Loader =  function (base, Global) {
             return base
     }
     base.enqueue = function(asset){
-    //    debugger; 
+        // debugger; 
         base.Queue[ base.Queue.length ] = asset
+        //Gooi.Core.Loaded[ Gooi.Core.Loaded.length ] = asset
     }
     base.Load = function(){
-    //    debugger;         
+        // debugger;         
         do{
             var asset = base.Queue[0]
             base.LoadScript( asset )
@@ -152,8 +154,8 @@ Gooi.Core.Loader =  function (base, Global) {
         base.Requires.Success =  function(){
             //debugger; 
             //console.dir( base.Queue )
-            if(base.Queue.length === 0) Global.Gooi_Globals_Loader_Complete = true
-            }
+            if( base.Queue.length === 0 ) Global.Gooi_Globals_Loader_Complete = true
+        }
     //    debugger; 
         base.enqueue( Gooi_Globals_Assets[library] )
         
@@ -165,7 +167,17 @@ Gooi.Core.Loader =  function (base, Global) {
         var script = document.createElement( 'script' )
 
         script.src = asset.Url() 
-        script.onload = Gooi.Core.Loader.Requires.Success
+        //script.onload = Gooi.Core.Loader.Requires.Success //does not work in ie 7
+        
+       if ( typeof script.addEventListener !== "undefined" ) {
+            script.addEventListener("load", Gooi.Core.Loader.Requires.Success, false)
+        } else {
+            script.onreadystatechange = function(){
+                script.onreadystatechange = null;
+                ieLoadBugFix(script, Gooi.Core.Loader.Requires.Success);
+            }
+        }        
+        
         script.type = 'text/javascript'
         document.head.appendChild( script )   
         //debugger; 
@@ -173,6 +185,7 @@ Gooi.Core.Loader =  function (base, Global) {
     };
     
     base.init = function(){
+        //debugger; 
         Global.Gooi_Globals_Assets = [];
     
         Global.Gooi_Globals_Assets['Core'] =  new base.Asset('Core', '/GooiCore/GooiCore.js')
@@ -206,20 +219,12 @@ return base
         doc = win.document,
         docElem = doc.documentElement,
 
-        FALSE = false,
-        COMPLETE = "complete",
-        READYSTATE = "readyState",
-        ATTACHEVENT = "attachEvent",
-        ADDEVENTLISTENER = "addEventListener",
-        DOMCONTENTLOADED = "DOMContentLoaded",
-        ONREADYSTATECHANGE = "onreadystatechange",
-
         // W3C Event model
-        w3c = ADDEVENTLISTENER in doc,
-        top = FALSE,
+        w3c = 'addEventListener' in doc,
+        top = false,
 
         // isReady: Is the DOM ready to be used? Set to true once it occurs.
-        isReady = FALSE,
+        isReady = false,
 
         // Callbacks pending execution until DOM is ready
         callbacks = [];
@@ -229,7 +234,7 @@ return base
         if ( !isReady ) {
             
             // Make sure body exists, at least, in case IE gets a little overzealous (ticket #5443).
-            if ( ! ( doc.body && Gooi_Globals_Loader_Complete )  ) {
+            if ( ! ( doc.body && window.Gooi_Globals_Loader_Complete )  ) {
                 return defer( ready );
             }
             
@@ -246,12 +251,12 @@ return base
     // The document ready event handler
     function DOMContentLoadedHandler() {
         if ( w3c ) {
-            doc.removeEventListener( DOMCONTENTLOADED, DOMContentLoadedHandler, FALSE );
+            doc.removeEventListener( 'DOMContentLoaded', DOMContentLoadedHandler, false );
             ready();
-        } else if ( doc[READYSTATE] === COMPLETE ) {
+        } else if ( doc['readyState'] === 'complete' ) {
             // we're here because readyState === "complete" in oldIE
             // which is good enough for us to call the dom ready!
-            doc.detachEvent( ONREADYSTATECHANGE, DOMContentLoadedHandler );
+            doc.detachEvent( 'onreadystatechange', DOMContentLoadedHandler );
             ready();
         }
     }
@@ -267,26 +272,26 @@ return base
     // Catch cases where onDomReady is called after the browser event has already occurred.
     // we once tried to use readyState "interactive" here, but it caused issues like the one
     // discovered by ChrisS here: http://bugs.jquery.com/ticket/12282#comment:15
-    if ( doc[READYSTATE] === COMPLETE ) {
+    if ( doc['readyState'] === 'complete' ) {
         // Handle it asynchronously to allow scripts the opportunity to delay ready
         defer( ready );
 
     // Standards-based browsers support DOMContentLoaded    
     } else if ( w3c ) {
         // Use the handy event callback
-        doc[ADDEVENTLISTENER]( DOMCONTENTLOADED, DOMContentLoadedHandler, FALSE );
+        doc['addEventListener']( 'DOMContentLoaded', DOMContentLoadedHandler, false );
 
         // A fallback to window.onload, that will always work
-        win[ADDEVENTLISTENER]( "load", ready, FALSE );
+        win['addEventListener']( "load", ready, false );
 
     // If IE event model is used
     } else {            
         // ensure firing before onload,
         // maybe late but safe also for iframes
-        doc[ATTACHEVENT]( ONREADYSTATECHANGE, DOMContentLoadedHandler );
+        doc['attachEvent']( 'onreadystatechange', DOMContentLoadedHandler );
 
         // A fallback to window.onload, that will always work
-        win[ATTACHEVENT]( "onload", ready );
+        win['attachEvent']( "onload", ready );
 
         // If IE and not a frame
         // continually check to see if the document is ready

@@ -23,6 +23,8 @@ Gooi.Core.Socket =  (function (base) {
             base.Web.PostBody = ( arguments[2] || '' )
             base.Web.Callback = func
             
+
+            
             base.Web.stateChange = function( object ) {
                 
                 if( base.Web.Request.readyState == 4 ){
@@ -30,13 +32,14 @@ Gooi.Core.Socket =  (function (base) {
                     response.Text = base.Web.Request.responseText.toString() 
                     response.ContentType = base.Web.Request.getResponseHeader( 'content-type' )
 
-                    if( response.ContentType.indexOf('text') > -1) response.Type = 'text'
-                    
-                    if( response.ContentType.indexOf('html') > -1) response.Type = 'html'
-                      
-                    if( response.ContentType.indexOf('xml') > -1) response.Type = 'xml'
-                  
-                    if( response.ContentType.indexOf('json') > -1) response.Type = 'json'
+                    if( response.ContentType.indexOf('text') > -1 ) 
+                        response.Type = 'text'
+                    if( response.ContentType.indexOf('html') > -1 ) 
+                        response.Type = 'html'
+                    if( response.ContentType.indexOf('xml') > -1 ) 
+                        response.Type = 'xml'
+                    if( response.ContentType.indexOf('json') > -1 ) 
+                        response.Type = 'json'
                     
                     if( response.Type === 'json' ){
                         response.Data = ( new Function( "return " + base.Web.Response.Text ) )()
@@ -53,7 +56,7 @@ Gooi.Core.Socket =  (function (base) {
                 else if( window.XMLHttpRequest )
         			return new XMLHttpRequest()
                 return false
-            })();
+            })(); //iefe lets find out if ie/moz right away
             
             base.Web.Request.Send = function(){
                     var request = base.Web.Request
@@ -69,12 +72,24 @@ Gooi.Core.Socket =  (function (base) {
                     }
                     
                     request.send( base.Web.PostBody )
-            };
-            (function init (){
-                base.Web.Request.Send();
-            })()
+            }
+            
+                //base.Web.Request.Send();
+            base.init = function(){
+                base.Web.Request()
+            }
         }
-
+        Gooi.Core.Loaded['Gooi.Core.Socket.Web'] = base.Web
+        
+        //debugger; 
+       /* base.Web.onLoaded = function(){
+            //try{
+                //debugger; 
+                           
+            //}catch(e){}    
+        }
+        base.Web.onLoaded(); */
+        
     return base;
 
 })( Gooi.Core.Socket || {} );   
