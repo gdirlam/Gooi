@@ -16,7 +16,7 @@
     * GooiUxFaceted
     * GooiUxForm
     * GooiUxGrid
-* ?GooiType?
+* &iquest;GooiType?
 * GooiPicto
 
 
@@ -40,6 +40,7 @@ tests still kind of suck, but are somewhat useful now.
 * Need to make a better lift file for places where code come from
 * I am unhappy with the roadmap with GooiPage and GooiUx... the differences and similariries between these items is troubling. 
 * I need to add styling to the dependency loader
+* Need to specify which versions of IE that
 
 ##Lift
 * <a target="_blank" href="http://dean.edwards.name/weblog/2006/03/base/">Dean Edwards Base</a> - thinking about some prototype functionationality - not yet used<br/>
