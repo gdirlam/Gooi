@@ -1,4 +1,6 @@
 #GOOI - UNDER CONSTRUCTION - 
+<small>please note this project is for research purposes only and may never be production used. </small>
+
 #Gooi - Client side web application scaffold
 Gooi is designed to bridge rich application development in javascript with presentation and semantic markup. 
 At its core, it has Dom ready that is script loader aware, so that Document.Ready code fires after dependencies 
