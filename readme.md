@@ -1,7 +1,14 @@
+#GOOI - UNDER CONSTRUCTION - 
 #Gooi - Client side web application scaffold
-Gooi is designed to bridge rich application development in javascript with  presentation and semantic markup. 
+Gooi is designed to bridge rich application development in javascript with presentation and semantic markup. 
 At its core, it has Dom ready that is script loader aware, so that Document.Ready code fires after dependencies 
 have been loaded. 
+
+Gooi strives to supply a rational and simple script loading functionality that interacts with document.ready.
+Using the observer pattern in js, Gooi fires initializers on the scripts loaded into the requires queue. 
+
+The presentation portion of Gooi is targeted towards progressive enhancement and modernization. GooiUxForms will 
+moderize old browsers into supporting HTML5 forms functionality.
 
 ##Roadmap
 * [GooiAssert] (tree/master/GooiAssert)
@@ -41,7 +48,7 @@ tests still kind of suck, but are somewhat useful now.
 
 ##To Do- (Tasks)
 * Need to make a better lift file for places where code come from
-* I am unhappy with the roadmap with GooiPage and GooiUx... the differences and similariries between these items is troubling. 
+* I am unhappy with the roadmap with GooiPage and GooiUx... the differences and similarities between these items is troubling. 
 * I need to add styling to the dependency loader
 * Need to specify which versions of IE that
 
