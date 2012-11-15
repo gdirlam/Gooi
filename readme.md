@@ -1,9 +1,9 @@
 #Gooi - Client side web application scaffold
 
 ##Roadmap
-* Assert
-* Core
-* 
+* [GooiAssert] (tree/master/GooiCore/GooiCore.js)
+* [GooiCore]
+* [GooiHelper]
 
 Roadmap & Documentaion  
 
