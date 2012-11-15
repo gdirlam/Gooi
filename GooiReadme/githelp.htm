@@ -15,6 +15,9 @@ set to executable
 
 
 remove newline
+with backup
 sed -i.bak -e 's/\r//g' gitbatch 
+w/o backup
+sed -i'' -e 's/\r//g' git
 ./<filename>
 </pre>
