@@ -7,5 +7,17 @@ __Core__
 <img src="http://www.webreference.com/programming/javascript/prototypal_inheritance/diagram2.png" width="25%" height="25%" />
 
  
- Tests
- * <a href="test/_GooiCore.htm">Checking Core</a>
+__Tests__
+tests still kind of suck, but are somewhat useful now.
+* <a href="test/_GooiAssert.htm">Checking Assert</a>
+* <a href="test/_GooiCore.htm">Checking Core</a>
+    * _todo:_ scripts
+    * <a href="test/_GooiCoreLoader.htm">Checking Loader</a>
+        * _todo:_ loader needs to be interact better with DOM ready 
+        * _todo:_ scripts need to register to a 
+    * <a href="test/_GooiCoreSocket.htm">Checking Sockets</a>
+* Gooi Helpers
+    * <a href="test/_GooiHelperString.htm">Checking String Helper</a>
+        * _todo:_ need to make prototype state toggle for when I do not want to modify the inherent primative classes 
+
+__To Do__
