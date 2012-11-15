@@ -1,6 +1,6 @@
 #Gooi - Client side web application scaffold
 
-__Now with ajax__ - 
+__Now with ajax__ - <br /> 
 <img src="http://www.peerbits.com/wp-content/uploads/2011/07/Ajax-development.jpg" width="25%" height="25%" />
 
 __Core__
