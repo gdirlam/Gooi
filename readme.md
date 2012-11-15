@@ -36,7 +36,7 @@ Roadmap & Documentaion
 
  
 ##Tests
-tests still kind of suck, but are somewhat useful now.
+tests still pretty bad, but are somewhat useful now, they need to get fleshed out.
 * <a href="test/_GooiAssert.htm">Checking Assert</a>
 * <a href="test/_GooiCore.htm">Checking Core</a>
     * __todo:__ style loading 
