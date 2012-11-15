@@ -1,0 +1,47 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../GooiCore/GooiCoreStrings.js" type="text/javascript"></script>
+    <script src="../GooiAssert/GooiAssert.js" type="text/javascript"></script>
+    <script src="../GooiCore/GooiCore.js" type="text/javascript"></script>
+    <script src="../GooiCore/GooiCoreSocket.js" type="text/javascript"></script>
+    <script>
+    //check out that cool Dom Ready action....
+        //Goo.requires("Assert", true).requires("Sockets").requires("Strings")
+        var remoteData, localData
+        Goo( function(){
+            var _url = "//app.ecwid.com/api/v1/1590566/categories"
+            Gooi.Core.Socket.Remote(_url,  function( data ){
+                    //debugger; 
+                    Gooi.Assert.isArray(data)
+                    Gooi.assert(this.Response.Type === 'jsonp', 'This is not a remote JSONP call') 
+                    console.dir( data )   
+                    return data
+            })
+        })
+
+        Goo( function(){
+            Gooi.Core.Socket.Web("test.json",  function( data ){
+                //debugger; 
+                    Gooi.assert( this.Request instanceof XMLHttpRequest, 'this is not a valid ajax call or you are using IE' )
+                    Gooi.Assert.isInstanceOf( this.Request, XMLHttpRequest, 'this is not a valid ajax call or you are using IE' )
+                    Gooi.assert( this.Response.ContentType==="application/json", 'Data returned did not have the right conent type' )
+                    Gooi.assert( this.Response.Type === 'json', 'Data returned is not marked as json' )
+                    
+                    //debugger; 
+                    console.dir( data )   
+                    return data
+            })
+           
+        }) 
+
+    </script>
+</head>
+<body>
+<h1>Core Sockets IO Remote</h1>
+need to add tests...
+<body>
+</html>
