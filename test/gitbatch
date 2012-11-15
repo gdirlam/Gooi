@@ -1,7 +1,5 @@
-# ./gitbatch
-
-echo "add this message to your commit"
-read $msg
-#git commit -am $msg
-#git push
-#echo "all changes committed"
+echo "Please input your commit message"
+read msg
+git commit -am $msg
+git push
+echo "commit pushed to github"

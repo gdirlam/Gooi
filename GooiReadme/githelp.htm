@@ -12,5 +12,9 @@ git push
 <pre>
 set to executable
 #chmod ugo+rx <filename> 
+
+
+remove newline
+sed -i.bak -e 's/\r//g' gitbatch 
 ./<filename>
 </pre>
