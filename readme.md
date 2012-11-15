@@ -1,9 +1,24 @@
 #Gooi - Client side web application scaffold
 
 ##Roadmap
-* [GooiAssert] (tree/master/GooiCore/GooiCore.js)
-* [GooiCore]
-* [GooiHelper]
+* [GooiAssert] (tree/master/GooiAssert)
+    * [Gooi Assert File] (tree/master/GooiAssert/GooiAssert.js)
+* [GooiCore] (tree/master/GooiCore/)
+    * [Gooi Core File] (tree/master/GooiCore/GooiCore.js)
+* [GooiHelper] (tree/master/GooiHelper)
+    * [Gooi Helper Strings] (tree/master/Gooihelper/GooiHelperString.js)
+* GooiPage
+    * GooiPageHeader
+        * GooiPageHeaderMenu
+    * GooiPageContent
+* GooiUx
+    * GooiUxButton
+    * GooiUxFaceted
+    * GooiUxForm
+    * GooiUxGrid
+* ?GooiType?
+* GooiPicto
+
 
 Roadmap & Documentaion  
 
@@ -23,8 +38,8 @@ tests still kind of suck, but are somewhat useful now.
 
 ##To Do- (Tasks)
 * Need to make a better lift file for places where code come from
-* 
-* 
+* I am unhappy with the roadmap with GooiPage and GooiUx... the differences and similariries between these items is troubling. 
+* I need to add styling to the dependency loader
 
 ##Lift
 * <a target="_blank" href="http://dean.edwards.name/weblog/2006/03/base/">Dean Edwards Base</a> - thinking about some prototype functionationality - not yet used<br/>
