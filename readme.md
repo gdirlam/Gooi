@@ -26,7 +26,8 @@ tests still kind of suck, but are somewhat useful now.
 * 
 
 #Lift
-*<a href="//dean.edwards.name/weblog/2006/03/base/">Dean Edwards Base</a>
-*<a href="//code.google.com/p/domready/">Dom Ready - Tubal Martin </a>
-*<a href="//developer.yahoo.com/yui/yuitest/#start">Philo: Yui Test</a>
-*<a href="//github.com/amdjs/underscore/blob/master/underscore.js">Underscore</a>
+* <a href="//dean.edwards.name/weblog/2006/03/base/">Dean Edwards Base</a><br/>
+* <a href="//developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array">Code to upgrade arrays to javascript 1.8</a><br/>
+* <a href="//code.google.com/p/domready/">Dom Ready - Tubal Martin </a><br/>
+* <a href="//developer.yahoo.com/yui/yuitest/#start">Philo: Yui Test</a><br/>
+* <a href="//github.com/amdjs/underscore/blob/master/underscore.js">Underscore</a><br/>

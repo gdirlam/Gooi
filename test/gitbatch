@@ -1,5 +1,0 @@
-echo "Please input your commit message"
-read msg
-git commit -am $msg
-git push
-echo "commit pushed to github"
