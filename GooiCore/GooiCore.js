@@ -23,6 +23,8 @@ return base
 }( Gooi.Core || {} ));       
 
 Gooi.Core.EcmaCompatability = ( function ( base ) {
+    /*functionality taken directly from developer.mozilla.org, 
+    this is meant to upgrade the current js to 1.8 features */
     base.array = ( base.array || {} )
     base.array.forEach = function(){
             if ( !Array.prototype.forEach ) {
@@ -117,7 +119,6 @@ Gooi.Core.EcmaCompatability = ( function ( base ) {
 return base
 }( Gooi.Core.EcmaCompatability || {} )); 
 
-
 Gooi.Core.Loader =  function (base, Global) {
     
     Global.Gooi_Globals_Site = '/gdirlam/gooi/workspace'
@@ -165,7 +166,13 @@ Gooi.Core.Loader =  function (base, Global) {
     //    debugger; 
 
         var script = document.createElement( 'script' )
-
+        var ieLoadBugFix = function (scriptElement, callback) {
+            if ( scriptElement.readyState == 'loaded' || scriptElement.readyState == 'complete' ) {
+                callback();
+            } else {
+                setTimeout(function() { ieLoadBugFix(scriptElement, callback); }, 100);
+            }
+        }
         script.src = asset.Url() 
         //script.onload = Gooi.Core.Loader.Requires.Success //does not work in ie 7
         
@@ -215,15 +222,11 @@ return base
     
     'use strict';
 
-    var win = window,
-        doc = win.document,
-        docElem = doc.documentElement,
-
+    var 
         // W3C Event model
-        w3c = 'addEventListener' in doc,
+        w3c = 'addEventListener' in window.document,
         top = false,
 
-        // isReady: Is the DOM ready to be used? Set to true once it occurs.
         isReady = false,
 
         // Callbacks pending execution until DOM is ready
@@ -234,7 +237,7 @@ return base
         if ( !isReady ) {
             
             // Make sure body exists, at least, in case IE gets a little overzealous (ticket #5443).
-            if ( ! ( doc.body && window.Gooi_Globals_Loader_Complete )  ) {
+            if ( ! ( window.document.body && window.Gooi_Globals_Loader_Complete )  ) {
                 return defer( ready );
             }
             
@@ -251,12 +254,12 @@ return base
     // The document ready event handler
     function DOMContentLoadedHandler() {
         if ( w3c ) {
-            doc.removeEventListener( 'DOMContentLoaded', DOMContentLoadedHandler, false );
+            window.document.removeEventListener( 'DOMContentLoaded', DOMContentLoadedHandler, false );
             ready();
-        } else if ( doc['readyState'] === 'complete' ) {
+        } else if ( window.document['readyState'] === 'complete' ) {
             // we're here because readyState === "complete" in oldIE
             // which is good enough for us to call the dom ready!
-            doc.detachEvent( 'onreadystatechange', DOMContentLoadedHandler );
+            window.document.detachEvent( 'onreadystatechange', DOMContentLoadedHandler );
             ready();
         }
     }
@@ -268,43 +271,37 @@ return base
     }
     
     // Attach the listeners:
-
-    // Catch cases where onDomReady is called after the browser event has already occurred.
-    // we once tried to use readyState "interactive" here, but it caused issues like the one
-    // discovered by ChrisS here: http://bugs.jquery.com/ticket/12282#comment:15
-    if ( doc['readyState'] === 'complete' ) {
+    if ( window.document['readyState'] === 'complete' ) {
         // Handle it asynchronously to allow scripts the opportunity to delay ready
         defer( ready );
 
     // Standards-based browsers support DOMContentLoaded    
     } else if ( w3c ) {
         // Use the handy event callback
-        doc['addEventListener']( 'DOMContentLoaded', DOMContentLoadedHandler, false );
+        window.document['addEventListener']( 'DOMContentLoaded', DOMContentLoadedHandler, false );
 
         // A fallback to window.onload, that will always work
-        win['addEventListener']( "load", ready, false );
+        window['addEventListener']( "load", ready, false );
 
     // If IE event model is used
     } else {            
         // ensure firing before onload,
         // maybe late but safe also for iframes
-        doc['attachEvent']( 'onreadystatechange', DOMContentLoadedHandler );
+        window.document['attachEvent']( 'onreadystatechange', DOMContentLoadedHandler );
 
         // A fallback to window.onload, that will always work
-        win['attachEvent']( "onload", ready );
+        window['attachEvent']( "onload", ready );
 
         // If IE and not a frame
         // continually check to see if the document is ready
         try {
-            top = win.frameElement == null && docElem;
+            top = window.frameElement == null && window.document.documentElement;
         } catch(e) {}
 
         if ( top && top.doScroll ) {
             (function doScrollCheck() {
                 if ( !isReady ) {
                     try {
-                        // Use the trick by Diego Perini
-                        // http://javascript.nwbox.com/IEContentLoaded/
                         top.doScroll("left");
                     } catch(e) {
                         return defer( doScrollCheck, 50 );
