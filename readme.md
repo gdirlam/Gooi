@@ -26,8 +26,8 @@ tests still kind of suck, but are somewhat useful now.
 * 
 
 #Lift
-* <a href="http://dean.edwards.name/weblog/2006/03/base/">Dean Edwards Base</a> - thinking about some prototype functionationality - not yet used<br/>
-* <a href="//developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array">developer.mozilla.org</a>: Code to upgrade arrays to javascript 1.8<br/>
-* <a href="//code.google.com/p/domready/">Dom Ready - Tubal Martin </a> I am using this whole thing<br/>
-* <a href="//developer.yahoo.com/yui/yuitest/#start">Philo: Yui Test</a> Not used. <br/>
-* <a href="//github.com/amdjs/underscore/blob/master/underscore.js">Underscore</a> Not used. <br/>
+* <a target="_blank" href="http://dean.edwards.name/weblog/2006/03/base/">Dean Edwards Base</a> - thinking about some prototype functionationality - not yet used<br/>
+* <a target="_blank" href="//developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array">developer.mozilla.org</a>: Code to upgrade arrays to javascript 1.8<br/>
+* <a target="_blank" href="//code.google.com/p/domready/">Dom Ready - Tubal Martin </a> I am using this whole thing<br/>
+* <a target="_blank" href="//developer.yahoo.com/yui/yuitest/#start">Philo: Yui Test</a> Not used. <br/>
+* <a target="_blank" href="//github.com/amdjs/underscore/blob/master/underscore.js">Underscore</a> Not used. <br/>
