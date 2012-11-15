@@ -7,17 +7,26 @@ __Core__
 <img src="http://www.webreference.com/programming/javascript/prototypal_inheritance/diagram2.png" width="25%" height="25%" />
 
  
-__Tests__
+#Tests
 tests still kind of suck, but are somewhat useful now.
 * <a href="test/_GooiAssert.htm">Checking Assert</a>
 * <a href="test/_GooiCore.htm">Checking Core</a>
-    * _todo:_ scripts
+    * __todo:__ scripts 
     * <a href="test/_GooiCoreLoader.htm">Checking Loader</a>
-        * *todo:* loader needs to be interact better with DOM ready 
-        * *todo:* scripts need to register to a 
+        * __todo:__ loader needs to be interact better with DOM ready 
+        * __todo:__ scripts need to register to a observer, to get their initializers fired pre-dom ready
     * <a href="test/_GooiCoreSocket.htm">Checking Sockets</a>
 * Gooi Helpers
     * <a href="test/_GooiHelperString.htm">Checking String Helper</a>
-        * *todo:* need to make prototype state toggle for when I do not want to modify the inherent primative classes 
+        * __todo:__ need to make prototype state toggle for when I do not want to modify the inherent primative classes 
 
-__To Do__
+#To Do
+* Need to make a better lift file for places where code come from
+* 
+* 
+
+#Lift
+*<a href="//dean.edwards.name/weblog/2006/03/base/">Dean Edwards Base</a>
+*<a href="//code.google.com/p/domready/">Dom Ready - Tubal Martin </a>
+*<a href="//developer.yahoo.com/yui/yuitest/#start">Philo: Yui Test</a>
+*<a href="//github.com/amdjs/underscore/blob/master/underscore.js">Underscore</a>
