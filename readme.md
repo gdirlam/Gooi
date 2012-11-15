@@ -1,4 +1,7 @@
 #Gooi - Client side web application scaffold
+Gooi is designed to bridge rich application development in javascript with  presentation and semantic markup. 
+At its core, it has Dom ready that is script loader aware, so that Document.Ready code fires after dependencies 
+have been loaded. 
 
 ##Roadmap
 * [GooiAssert] (tree/master/GooiAssert)
@@ -27,7 +30,7 @@ Roadmap & Documentaion
 tests still kind of suck, but are somewhat useful now.
 * <a href="test/_GooiAssert.htm">Checking Assert</a>
 * <a href="test/_GooiCore.htm">Checking Core</a>
-    * __todo:__ scripts 
+    * __todo:__ style loading 
     * <a href="test/_GooiCoreLoader.htm">Checking Loader</a>
         * __todo:__ loader needs to be interact better with DOM ready 
         * __todo:__ scripts need to register to a observer, to get their initializers fired pre-dom ready
