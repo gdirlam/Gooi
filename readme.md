@@ -7,13 +7,13 @@ At its core, it has Dom ready that is script loader aware, so that Document.Read
 have been loaded. 
 
 Gooi strives to supply a rational and simple script loading functionality that interacts with document.ready.
-Using the observer pattern in js, Gooi fires initializers on the scripts loaded into the requires queue. 
+Using the observer pattern in js, Gooi fires initializers on the scripts loaded into the "Requires" queue. 
 
 The presentation portion of Gooi is targeted towards progressive enhancement and modernization. GooiUxForms will 
 moderize old browsers into supporting HTML5 forms functionality.
 
 ##Roadmap
-* [GooiAssert] (tree/master/GooiAssert)
+* [GooiAssert] (tree/master/GooiAssert) 
     * [Gooi Assert File] (tree/master/GooiAssert/GooiAssert.js)
 * [GooiCore] (tree/master/GooiCore/)
     * [Gooi Core File] (tree/master/GooiCore/GooiCore.js)
