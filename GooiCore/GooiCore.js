@@ -187,12 +187,12 @@ Gooi.Core.Loader =  function (base, Global) {
         
         script.type = 'text/javascript'
         document.head.appendChild( script )   
-        //debugger; 
+        debugger; 
         
     };
     
     base.init = function(){
-        //debugger; 
+       //debugger; 
         Global.Gooi_Globals_Assets = [];
     
         Global.Gooi_Globals_Assets['Core'] =  new base.Asset('Core', '/GooiCore/GooiCore.js')

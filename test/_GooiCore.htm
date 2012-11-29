@@ -3,24 +3,30 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <script src="../GooiAssert/GooiAssert.js" type="text/javascript"></script>
     <script src="../GooiCore/GooiCore.js" type="text/javascript"></script>
-
     <title></title>
 </head>
 <body>
     <script>
-    //are we sure this should not be GOOI?
-        Goo( function TestCoreExtend(){
-            var i = { Super : function(){return true}, foo: 'baz' }
-            var x = { Ext : function(){return true}, foo: 'bar' }
-            var ix = Gooi.Core.Extend(i, x)
-            
-            Gooi.assert( i.Super, 'is super class')
-            Gooi.assert( x.Ext, 'is extended class')
-            Gooi.assert( ix.Ext, 'is extended class')
-            Gooi.assert( ix.foo ==='bar', 'is extended class')
-        })
+    Gooi.Core.Loader.Requires("Assert").Load()
+
+    Goo( function TestCoreExtend(){
+        Gooi.Assert.warn = true 
+        var i = { Super : function(){return true}, foo: 'baz' }
+        console.dir(i)
+        var x = { Ext : function(){return true}, foo: 'bar' }
+        Gooi.Core.Extend(i, x)
+        console.dir(i)
+        console.dir(x)
+        //console.dir(ix)
+
+        Gooi.assert( 1===2, 'test works')
+
+        Gooi.assert( i.Super, 'is super class')
+        Gooi.assert( x.Ext, 'is extended class')
+        Gooi.assert( i.Ext, 'is extended class')
+        Gooi.assert( i.foo ==='bar', 'is extended class')
+    })
 
     </script>
     

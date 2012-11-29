@@ -1,5 +1,5 @@
 /*jshint asi:true, supernew:true */
-var Gooi_Globals_Prototype = false 
+var Gooi_Globals_Prototype = Gooi_Globals_Prototype || false 
 
 var Gooi = Gooi || {};
 
@@ -40,6 +40,7 @@ Gooi.Helper.String = {
        return ''
    }
    , init: function(){
+       debugger; 
         if( Gooi_Globals_Prototype ){
             if(! String.prototype.format )
                 String.prototype.format = Gooi.Helper.String.format
