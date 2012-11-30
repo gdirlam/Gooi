@@ -11,14 +11,16 @@
 </head>
 <body>
     <script>
-            Gooi_Globals_Prototype = true
-            Gooi.Core.Loader.Requires("StringHelper").Load()
+        Gooi_Globals_Log = true
+        Gooi_Globals_Prototype = true
+        Gooi.Core.Loader.Requires("Gooi.Helper.String").Load()
 
             Goo( function(){
                 "foobar".write()
                 })
         
     </script>
+    <h1>Nice. Now with autocomplete.</h1>
     <pre>
     Stuff in the helper library are meant to be things 
     that use prototype against their respective native

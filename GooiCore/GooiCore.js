@@ -2,7 +2,9 @@
 
 var Gooi = Gooi || {};
 
-Gooi.Core = ( function ( base ) {
+Gooi.Core = ( function ( base, Global ) {
+    Global.Gooi_Globals_Log = ( Global.Gooi_Globals_Log || false ) //need to add verbose flag to logging to set level... 
+
     base.Bind = function ( caller, object ) {
         return function() {
             return caller.apply( object, [object] )
@@ -20,7 +22,7 @@ Gooi.Core = ( function ( base ) {
     base.Loaded = [];
     
 return base
-}( Gooi.Core || {} ));       
+}( Gooi.Core || {}, window ));       
 
 Gooi.Core.EcmaCompatability = ( function ( base ) {
     /*functionality taken directly from developer.mozilla.org, 
@@ -120,8 +122,9 @@ return base
 }( Gooi.Core.EcmaCompatability || {} )); 
 
 Gooi.Core.Loader =  function (base, Global) {
-    
+/*Loader Fires init() function on Lib, if no Loader, then fire the function manually... */    
     Global.Gooi_Globals_Site = '/gdirlam/gooi/workspace'
+    Global.Gooi_Globals_Loader_Complete = false; 
     Global.Gooi_Globals_Loader_Complete = false; 
     base.Queue = []
     
@@ -142,20 +145,39 @@ Gooi.Core.Loader =  function (base, Global) {
         //Gooi.Core.Loaded[ Gooi.Core.Loaded.length ] = asset
     }
     base.Load = function(){
-        // debugger;         
+        // debugger;
+        if( Gooi_Globals_Log )
+            console.log('Script Loader Loading')
         do{
             var asset = base.Queue[0]
             base.LoadScript( asset )
             base.Queue.splice( 0, 1 )
+            //debugger; 
+            if( Gooi_Globals_Log ) 
+                console.log('Script Loader Loaded', asset )
+            
         }while( base.Queue.length > 0 )
         
 
     }
     base.Requires = function( library ){
-        base.Requires.Success =  function(){
+        base.Requires.Success =  function(which){
             //debugger; 
             //console.dir( base.Queue )
-            if( base.Queue.length === 0 ) Global.Gooi_Globals_Loader_Complete = true
+            if( Gooi_Globals_Log ) 
+                console.log('Script Loader Loaded Callback Fired', which.target.asset )
+            try{
+                //debugger; 
+                //eval( which.target.asset.Name + '.init()' )
+                var Fn = Function, ret = new Fn( which.target.asset.Name + '.init()' )()
+            }catch(e){}
+            
+            
+            if( base.Queue.length === 0 ){ 
+                Global.Gooi_Globals_Loader_Complete = true
+                if( Gooi_Globals_Log ) 
+                    console.log('Script Loader Complete' )                
+            }
         }
     //    debugger; 
         base.enqueue( Gooi_Globals_Assets[library] )
@@ -168,7 +190,8 @@ Gooi.Core.Loader =  function (base, Global) {
         var script = document.createElement( 'script' )
         var ieLoadBugFix = function (scriptElement, callback) {
             if ( scriptElement.readyState == 'loaded' || scriptElement.readyState == 'complete' ) {
-                callback();
+                scriptElement.asset = asset//this might introduce a bug here, with asset passing in.
+                callback(); 
             } else {
                 setTimeout(function() { ieLoadBugFix(scriptElement, callback); }, 100);
             }
@@ -177,6 +200,8 @@ Gooi.Core.Loader =  function (base, Global) {
         //script.onload = Gooi.Core.Loader.Requires.Success //does not work in ie 7
         
        if ( typeof script.addEventListener !== "undefined" ) {
+          // debugger;
+            script.asset = asset
             script.addEventListener("load", Gooi.Core.Loader.Requires.Success, false)
         } else {
             script.onreadystatechange = function(){
@@ -187,18 +212,19 @@ Gooi.Core.Loader =  function (base, Global) {
         
         script.type = 'text/javascript'
         document.head.appendChild( script )   
-        debugger; 
-        
+        //debugger; 
+        if( Gooi_Globals_Log )
+            console.log('Script Loader Appended Script to Document')        
     };
     
     base.init = function(){
        //debugger; 
         Global.Gooi_Globals_Assets = [];
     
-        Global.Gooi_Globals_Assets['Core'] =  new base.Asset('Core', '/GooiCore/GooiCore.js')
-        Global.Gooi_Globals_Assets['Assert'] =  new base.Asset('Assert', '/GooiAssert/GooiAssert.js')    
-        Global.Gooi_Globals_Assets['Socket'] =  new base.Asset('Core', '/GooiCore/GooiCoreSocket.js')
-        Global.Gooi_Globals_Assets['StringHelper'] =  new base.Asset('StringHelper', '/GooiHelper/GooiHelperString.js')
+        Global.Gooi_Globals_Assets['Gooi.Core'] =  new base.Asset('Gooi.Core', '/GooiCore/GooiCore.js')
+        Global.Gooi_Globals_Assets['Gooi.Core.Assert'] =  new base.Asset('Gooi.Core.Assert', '/GooiAssert/GooiAssert.js')    
+        Global.Gooi_Globals_Assets['Gooi.Core.Socket'] =  new base.Asset('Gooi.Core.Socket', '/GooiCore/GooiCoreSocket.js')
+        Global.Gooi_Globals_Assets['Gooi.Helper.String'] =  new base.Asset('Gooi.Helper.String', '/GooiHelper/GooiHelperString.js')
 
     };
     base.init()

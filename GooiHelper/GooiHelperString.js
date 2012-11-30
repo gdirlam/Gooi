@@ -29,18 +29,24 @@ Gooi.Helper.String = {
     }
    , write: function () {
        if( arguments.length === 0 ) {
-           document.write( this + '<br />' )
+           var txt = this
+           document.body.innerHTML +=  '<br />' + txt + '<br />' 
+           //document.write( this + '<br />' )
            return ''
        }
        var txt = ''
        for( var i = 0; i < arguments.length; i++ )
            txt += arguments[i] + '<br />'
 
-       document.write(txt)
+       //document.write(txt)
+       document.body.innerHTML += '<br />' + txt + '<br />' 
        return ''
    }
    , init: function(){
-       debugger; 
+       //debugger; 
+        if( Gooi_Globals_Log )
+            console.log('String Helper Init Event Fired')
+            
         if( Gooi_Globals_Prototype ){
             if(! String.prototype.format )
                 String.prototype.format = Gooi.Helper.String.format
@@ -56,6 +62,6 @@ Gooi.Helper.String = {
         }       
     } 
 };
-(function(){ Gooi.Helper.String.init() })()
+//(function(){ Gooi.Helper.String.init() })()
 
         
