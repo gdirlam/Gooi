@@ -13,19 +13,19 @@ The presentation portion of Gooi is targeted towards progressive enhancement and
 moderize old browsers into supporting HTML5 forms functionality.
 
 ##Roadmap
-* [GooiAssert] (/tree/master/GooiAssert) 
-    * [Gooi Assert File] (/tree/master/GooiAssert/GooiAssert.js)
-* [GooiCore] (/tree/master/GooiCore/)
-    * [Gooi Core File] (/tree/master/GooiCore/GooiCore.js)
-    * [Gooi Core Sockets] (/tree/master/GooiCore/GooiCoreSockets.js)
+* [GooiAssert] (tree/master/GooiAssert) 
+    * [Gooi Assert File] (tree/master/GooiAssert/GooiAssert.js)
+* [GooiCore] (tree/master/GooiCore/)
+    * [Gooi Core File] (tree/master/GooiCore/GooiCore.js)
+    * [Gooi Core Sockets] (tree/master/GooiCore/GooiCoreSockets.js)
     * GooiCoreModerize
         * Forms Validation
         * Forms Input Types
             * Calendar
         * ES5 array features 
         * Webkit
-* [GooiHelper] (/tree/master/GooiHelper)
-    * [Gooi Helper Strings] (/tree/master/Gooihelper/GooiHelperString.js)
+* [GooiHelper] (tree/master/GooiHelper)
+    * [Gooi Helper Strings] (tree/master/Gooihelper/GooiHelperString.js)
     * Gooi Helper Dates
     * Gooi Helper Arrays
 * GooiPage
