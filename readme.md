@@ -17,8 +17,17 @@ moderize old browsers into supporting HTML5 forms functionality.
     * [Gooi Assert File] (tree/master/GooiAssert/GooiAssert.js)
 * [GooiCore] (tree/master/GooiCore/)
     * [Gooi Core File] (tree/master/GooiCore/GooiCore.js)
+    * [Gooi Core Sockets] (tree/master/GooiCore/GooiCoreSockets.js)
+    * GooiCoreModerize
+        * Forms Validation
+        * Forms Input Types
+            * Calendar
+        * ES5 array features 
+        * Webkit
 * [GooiHelper] (tree/master/GooiHelper)
     * [Gooi Helper Strings] (tree/master/Gooihelper/GooiHelperString.js)
+    * Gooi Helper Dates
+    * Gooi Helper Arrays
 * GooiPage
     * GooiPageHeader
         * GooiPageHeaderMenu
@@ -30,6 +39,7 @@ moderize old browsers into supporting HTML5 forms functionality.
     * GooiUxGrid
 * &iquest;GooiType?
 * GooiPicto
+    * Icon Font Support  (http://fontello.com/)
 
 
 Roadmap & Documentaion  
