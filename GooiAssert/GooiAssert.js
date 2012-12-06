@@ -4,7 +4,6 @@ var Gooi_Globals_Assert_WARN = false
 
 var Gooi = Gooi || {};
 
-//alert('Event')
 Gooi.assert = function () {
 
     this.AssertException = function () {
@@ -76,7 +75,10 @@ Gooi.Assert =  ( function (base) {
         get: function() { return Gooi_Globals_Assert_WARN }
         , set: function( value ){ Gooi_Globals_Assert_WARN = value }
     });
-
+    base.init = function(){
+        if( Gooi_Globals_Log )
+            console.log('Assertion Lib Init Event Fired')        
+    }
 
 return base;
 

@@ -55,8 +55,14 @@ tests still pretty bad, but are somewhat useful now, they need to get fleshed ou
 * Need to specify which versions of IE that
 
 ##Lift
+
+* <a target="_blank" href="https://github.com/ryanmorr/ondomready">onDOMReady</a> - Ready Used Core.onReady<br/>
+* <a target="_blank" href="http://stackoverflow.com/questions/6568890/javascript-dynamic-script-loading-ie-problems">Fixing IE Load Bug</a> - Ready<br/>
+
 * <a target="_blank" href="http://dean.edwards.name/weblog/2006/03/base/">Dean Edwards Base</a> - thinking about some prototype functionationality - not yet used<br/>
 * <a target="_blank" href="//developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array">developer.mozilla.org</a>: Code to upgrade arrays to javascript 1.8<br/>
-* <a target="_blank" href="//code.google.com/p/domready/">Dom Ready - Tubal Martin </a> I am using this whole thing<br/>
+* <a target="_blank" href="//code.google.com/p/domready/">Dom Ready - Tubal Martin </a>depricated for simpler onReady model<br/>
 * <a target="_blank" href="//developer.yahoo.com/yui/yuitest/#start">Philo: Yui Test</a> Not used. <br/>
 * <a target="_blank" href="//github.com/amdjs/underscore/blob/master/underscore.js">Underscore</a> Not used. <br/>
+
+

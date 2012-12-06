@@ -8,14 +8,23 @@
 </head>
 <body>
     <script>
-    Gooi.Core.Loader.Requires("Assert").Load()
+    //        Gooi_Globals_Prototype = true
+    Gooi.Core({Log: true, Site: '/gdirlam/gooi/workspace', Prototype: true}).Loader()
+        .Use('Gooi.Assert')
+        .Use("Gooi.Helper.String")
+        .Load()
 
-    Goo( function TestCoreExtend(){
+    Gooi.onReady( function(){
+        //debugger; 
+        "foobar".write()
+    })
+    
+    Gooi.onReady(function(){
         Gooi.Assert.warn = true 
         var i = { Super : function(){return true}, foo: 'baz' }
         console.dir(i)
         var x = { Ext : function(){return true}, foo: 'bar' }
-        Gooi.Core.Extend(i, x)
+        Gooi.Core().Extend(i, x)
         console.dir(i)
         console.dir(x)
         //console.dir(ix)
@@ -26,11 +35,14 @@
         Gooi.assert( x.Ext, 'is extended class')
         Gooi.assert( i.Ext, 'is extended class')
         Gooi.assert( i.foo ==='bar', 'is extended class')
+        
     })
+    /*Goo( function TestCoreExtend(){
 
+    })*/    
+    
     </script>
     
 
 </body>
 </html>
-
