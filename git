@@ -1,0 +1,3 @@
+git commit -am "$1"
+git push
+echo "commit pushed to github"
